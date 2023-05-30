@@ -1,0 +1,498 @@
+//  Adjust container width for smaller screens
+//         @media only screen and (max-width: 1200px) {
+//             width: 100%;
+//             padding: 20px;
+//         }
+$my-background : #bac0c0;
+
+
+.app {
+    display: flex;
+    justify-content: center;
+
+   
+    .container {
+        // width: 1024px;
+        max-width: 1200px;
+
+        .link{
+            text-decoration: none;
+            color: inherit;
+        }
+        //LOGIN & REGISTER
+        .auth {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blue;
+            height: 100vh;
+            background: $my-background ;
+            text-align: center;
+
+            h1 {
+                font-size: 20px;
+                color:darkslategrey;
+                margin-bottom: 20px;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                background: whitesmoke;
+                width: 200px;
+                gap:20px;
+
+                input{
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                }
+                button {
+                    padding: 10px;
+                    border: none;
+                    background-color: aquamarine;
+                    cursor: pointer;
+                    color:cornflowerblue;
+                }
+                p{
+                    font-size: 14px;
+                    color: red;
+                    text-align: center;
+                }
+                span{
+                    font-size: 15px;
+                    text-align: center;
+                }
+            }
+            
+       
+        }
+         //NAVBAR
+         .navbar{
+            .container{
+                padding: 10px 0px;
+                display: flex;
+                align-items: center;
+                //nhớ xem điều chỉnh lại justify-content
+                justify-content: space-between;
+
+                .logo{
+                    img{
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 100%;
+                    }
+                }
+                .links{ 
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                   
+
+                    h6{
+                        font-size: 16px;
+                        font-weight: 300;
+                        transition: all 0.2s;
+                        transform: scale(1);
+                        &:hover{
+                            transform: scale(1.2);
+                            text-shadow: 5px 5px 5px black
+                        }
+                    }
+                    span{
+                        cursor: pointer;
+                        transition: all 0.2s;
+                        transform: scale(1);
+                        &:hover{
+                            transform: scale(1.2);
+                            text-shadow: 5px 5px 5px black
+                        }
+                    }
+                    .write{
+                        background-color: $my-background;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 300;
+                        border: 1px solid rgb(150, 149, 145);
+
+                        &:hover{
+                            color: brown;
+                            background-color: azure;
+                            border: 1px solid rgb(169, 142, 33);
+                        }
+                    }
+                }
+            }
+          }
+        
+
+          //FOOTER
+          footer{
+            margin-top: 100px;
+            padding: 20px;
+            background-color: $my-background;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            /////////////////////
+            position: relative;
+    z-index: 1;
+            
+            img{
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
+            }
+             
+
+    
+            // // Responsive design
+            //  @media screen and (max-width: 768px) {
+            //  flex-direction: column;
+            //  justify-content: center;
+            //  align-items: center;
+             
+            // }
+          }
+
+        // HOME
+        .home{
+           .posts{
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 150px;
+
+            .post{
+                display: flex;
+                gap: 100px;
+
+                &:nth-child(2n+1){
+                  flex-direction: row-reverse;
+                }
+
+                .img{
+                    flex: 2;
+                    position: relative;
+
+                    &::after{
+                          content:'';
+                          width: 100%;
+                          height: 100%;
+                          background-color: $my-background;
+                          position: absolute;
+                          top: 20px;
+                          left: -20px;
+                          z-index: -1;
+                    }
+
+                    img{
+                        width: 100%;
+                        max-height: 400px;
+                        object-fit: cover;
+                        //border: 3px solid rgb(55, 50, 50);
+                        //border-radius: 5px;
+                        //padding: 5px;
+                        transform: scale(1);
+                        transition: all 0.5s;
+                    }
+                    img:hover {
+                        box-shadow: 2px 2px 2px darkgrey;
+                        transform: scale(1.1);
+                        }
+                }
+                .content{
+                    flex: 3;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    h1{
+                        font-size: 48px;
+                    }
+                    p{
+                        font-size: 18px;
+                    }
+                    button{
+                       width: max-content;
+                       padding: 10px 20px;
+                       border: none;
+                       cursor: pointer;
+                       background-color: black;
+                       border: 1px solid white ;
+                       color: white;
+
+                       &:hover{
+                        border: 1px solid rgb(135, 135, 133);
+                        background-color: $my-background;
+                        color: black
+                       }
+                    }
+                }
+            }
+           }
+     
+        }
+         //SINGLE 
+             .single {
+                display: flex;
+                gap:50px;
+                
+                .content{
+                 flex:5;
+                 display: flex;
+                 flex-direction: column;
+                 gap:30px;
+
+                 img{
+                    width: 100%;
+                    height: 430px;
+                    object-fit: cover;
+                    transform: scale(1);
+                    transition: all 0.5s;
+                    
+                 }
+                 img:hover {
+                    transform: scale(1.1);
+                    box-shadow: 2px 2px 2px rgb(93, 92, 92);
+                    }
+
+                 .user{
+                    display: flex;
+                    align-items: center;
+                    gap:10px;
+                    font-size: 15px;
+                    img{
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    span{
+                        font-weight: bold;
+                    }
+                 }
+
+                 .edit{
+                    display: flex;
+                    gap: 5px;
+
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        cursor: pointer;
+                    }
+                 }
+                
+
+                 h1{
+                   font-size: 42px;
+                   color:rgb(77, 77, 74)
+                 }
+                 p{
+                    text-align: justify;
+                    line-height: 30px;
+                 }
+
+                }
+                .menu{
+                 flex: 2;
+                 display: flex;
+                 flex-direction: column;
+                 gap: 25px;
+
+                 h1{
+                    font-size: 20px;
+                    color: #555
+                 }
+
+                 .post{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    img{
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                       // transform: scale(1);
+                        transition: all 0.5s;
+                        //border: 1px solid black;
+                        //border-radius: 4px;
+
+                    }
+                    img:hover {
+                        transform: scale(1.1);
+                        box-shadow: 2px 2px 2px grey;
+                        }
+                    h2{
+                        color: #555
+                    }
+
+                    button{
+                        width: max-content;
+                        padding: 10px 20px;
+                        border: none;
+                        cursor: pointer;
+                        background-color: black;
+                        border: 1px solid white ;
+                        color: white;
+ 
+                        &:hover{
+                         border: 1px solid rgb(135, 135, 133);
+                         background-color: $my-background;
+                         color: black
+                        }
+                     }
+                 }
+              }
+        }
+    
+        //WRITE
+        .add{
+            margin-top: 20px;
+            display: flex;
+            gap:20px;
+
+            .content{
+                flex: 5;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                input{
+                    padding: 10px;
+                    border: 1px solid lightgray;
+                }
+
+                .editorContainer{
+                    height: 300px;
+                    overflow: scroll;
+                    border: 1px solid lightgray;
+
+                    .editor{
+                        height: 100%;
+                        border: none;
+                    }
+                    
+                }
+                }
+
+            .menu{
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .item{
+                    border: 1px solid lightgrey;
+                    padding: 10px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-size: 18px;
+                    color: #555;
+
+                    h1{
+                      font-size: 20px;
+                    }
+
+                    .file {
+                      text-decoration:underline ;
+                      cursor: pointer;
+                    }
+
+                    .buttons{
+                       margin-top: 10px;
+                       display: flex;
+                       justify-content: space-between;
+
+                       :first-child{
+                        cursor: pointer;
+                        color: rgb(30, 169, 123);
+                        background-color: white;
+                        border: 1px solid rgb(30, 169, 123);
+                        padding: 3px 5px;
+                       }
+                       :last-child{
+                        cursor: pointer;
+                        color: white;
+                        background-color: rgb(30, 169, 123);
+                        border: 1px solid white ;
+                        padding: 3px 5px;
+                       }
+                    }
+                    .fashion{
+                        display: flex;
+                        align-items: center;
+                        gap: 2px;
+                        color: teal
+                    }
+                }
+            }
+
+        }
+
+                        /* Modal */
+                .modal {
+                    position: absolute;
+                    z-index: 9999;
+                    /* Các thuộc tính khác cho modal */
+                    top: 50%; /* Đặt modal ở giữa theo chiều dọc */
+                    left: 50%; /* Đặt modal ở giữa theo chiều ngang */
+                    transform: translate(-50%, -50%); /* Dịch chuyển modal để nằm chính giữa trang */
+                    background-color: #ebe5e5; /* Màu nền cho modal */
+                    padding: 30px; /* Khoảng cách padding bên trong modal */
+                    border:  solid 5px black;
+                    border-radius: 10px; /* Bo tròn góc modal */
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Đổ bóng cho modal */
+                    .modal-content button {
+                        margin-right: 10px; /* Khoảng cách giữa các nút */
+                    }
+                    
+                    .button-container {
+                        display: flex;
+                        justify-content: center;
+                        .closeButton {
+                            width: 70px;
+                            height: 35px;
+                            
+                            background-color: azure;
+                            border-color:black;
+                            color: black;
+                            &:hover{
+                                color: black;
+                                background-color:yellow;
+                                border: 1px solid rgb(169, 142, 33);
+                            }
+                        }
+                        .deleteButton {
+                            width: 70px;
+                            height: 35px;
+                            background-color: azure;
+                            border-color:black;
+                            color: black;
+                            
+                             &:hover{
+                                color: black;
+                                border-color: darkgray ;
+                                background-color: red;
+                                border: 1px solid rgb(169, 142, 33);
+                            }
+                            }
+                    }
+                
+                }
+  
+        
+    }
+}
+
+

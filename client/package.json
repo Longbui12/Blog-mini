@@ -1,0 +1,33 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 9001",
+    "build": "next build",
+    "start": "next start ",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next-tools/dynamic": "^0.0.11",
+    "@next/font": "13.3.1",
+    "@types/node": "18.16.1",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.1",
+    "axios": "^1.4.0",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.1",
+    "moment": "^2.29.4",
+    "next": "13.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-quill": "^2.0.0",
+    "sass": "^1.62.1",
+    "typescript": "5.0.4"
+  },
+  "proxy": "http://localhost:4004/api/",
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
+    "js-cookie": "^3.0.5"
+  }
+}
