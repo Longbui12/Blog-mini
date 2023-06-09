@@ -1,8 +1,5 @@
 import { db } from "../db.js";
 import jwt from "jsonwebtoken";
-//import * as service from "../services/post.service.js";
-// import util for promise
-// import util from "util";
 
 export const getPosts = (req, res) => {
   const q = req.query.fashion
@@ -17,7 +14,7 @@ export const getPosts = (req, res) => {
 
 export const getPost = (req, res) => {
   const q = `
-  SELECT  p.id ,u.username, p.title, p.desc, p.img, p.fashion, p.date, u.img AS userImg
+  SELECT  p.id ,u.username,p.uid,  p.title, p.desc, p.img, p.fashion, p.date, u.img AS userImg
   FROM posts p
   JOIN users u ON u.id = p.uid
   WHERE p.id = ?

@@ -5,6 +5,7 @@ import {
   getPost,
   getPosts,
   updatePost,
+
   // getall,
 } from "../controllers/post.controller.js";
 
@@ -19,4 +20,5 @@ router.delete("/:id", deletePost);
 router.put("/:id", updatePost);
 
 // router.get("/test", addPost);
+
 export default router;

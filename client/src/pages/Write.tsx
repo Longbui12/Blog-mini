@@ -15,6 +15,7 @@ type Post = {
   fashion: string;
   img: string;
   imgUrl: string;
+  uid: string;
 };
 
 const ReactQuill = dynamic(import("react-quill"), {
@@ -35,6 +36,7 @@ const Write = () => {
     fashion: "",
     img: "",
     imgUrl: "",
+    uid: "",
   });
   const router = useRouter();
   const postId = router.query.id as string | undefined;
@@ -131,6 +133,7 @@ const Write = () => {
           img: "",
           fashion: "",
           imgUrl: "",
+          uid: "",
         });
       }
       alert("Posted successfully .");
@@ -205,7 +208,7 @@ const Write = () => {
               <strong>Upload Image in Here !</strong>
             </label>
             <div className="buttons">
-              <button>Save as a draft</button>
+              {/* <button>Save as a draft</button> */}
               <button onClick={handlePublish}>Publish</button>
             </div>
           </div>

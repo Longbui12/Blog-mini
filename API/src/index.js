@@ -6,19 +6,10 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
 import * as dotenv from "dotenv";
+import * as service from "./services/user.service.js";
 
-// Thêm các import cần thiết
-import path from "path";
+//import path from "path";
 
-// import {
-//   getPost,
-//   getPosts,
-//   addPost,
-//   updatePost,
-//   deletePost,
-// } from "./controllers/post.controller.js";
-
-//import { createImg } from "./services/image.service.js";
 dotenv.config();
 
 const app = express();
@@ -50,6 +41,51 @@ app.post("/api/upload", upload.single("file"), function (req, res) {
   const file = req.file;
   res.status(200).json(file.filename);
 });
+
+////////////// AVATAR ==============/////////////////
+const storageAvatar = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../client/public/avatar"); // Đường dẫn đến thư mục "avatar"
+  },
+
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + " " + file.originalname);
+  },
+});
+
+const uploadAvatar = multer({ storage: storageAvatar });
+
+app.post("/api/avatar", uploadAvatar.single("avatar"), (req, res) => {
+  const file = req.file;
+  if (!file) {
+    return res.status(400).json({ error: "No file uploaded" });
+  }
+
+  const avatarFileName = file.filename;
+  return res.status(200).json({ filename: avatarFileName });
+});
+
+//++++++++++++++++++++++++++++++++++++++++++++++++////
+
+// Định tuyến PATCH cho avatar của người dùng
+app.patch("/api/users/:id", uploadAvatar.single("avatar"), async (req, res) => {
+  const userId = req.params.id;
+  const file = req.file;
+  console.log(file);
+  if (!file) {
+    return res.status(400).json({ error: "No file uploaded" });
+  }
+
+  const avatarFileName = file.filename;
+
+  // Cập nhật đường dẫn avatar mới cho người dùng với userId tương ứng
+
+  await service.uploadAvatar(userId, avatarFileName);
+
+  res.status(200).json({ success: true });
+});
+
+////////////=========================/////////////////////
 
 // Middleware để kiểm tra cookie từ client và gửi nó trong yêu cầu
 app.use((req, res, next) => {
